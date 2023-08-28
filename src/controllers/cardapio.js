@@ -131,10 +131,6 @@ const cardapioProdutos =  async (req, res) => {
       }
 
 
-
-
-
-
  const cardapioDiurno =  async (req, res) => {
     const { produto_id } = req.body;
   
