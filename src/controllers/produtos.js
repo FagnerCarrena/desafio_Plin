@@ -6,7 +6,7 @@ const listarProdutos = async (req, res) => {
       const produto = await knex('produtos').select('*');
       res.status(200).json(produto);
     } catch (error) {
-      console.error(error);
+      
       res.status(500).json({ error: 'Erro ao listar produtos.' });
     }
   };
@@ -28,7 +28,7 @@ const listarProdutos = async (req, res) => {
       });
       res.status(201).json({ message: 'Produto criado com sucesso.' });
     } catch (error) {
-      console.error(error);
+     
       res.status(500).json({ error: 'Erro ao criar produto.' });
     }
   };
@@ -51,7 +51,7 @@ const listarProdutos = async (req, res) => {
       });
       res.status(200).json({ message: 'Produto atualizado com sucesso.' });
     } catch (error) {
-      console.error(error);
+     
       res.status(500).json({ error: 'Erro ao atualizar produto.' });
     }
   };
@@ -61,7 +61,7 @@ const listarProdutos = async (req, res) => {
       await knex('produtos').where({ id }).del();
       res.status(200).json({ message: 'Produto excluído com sucesso.' });
     } catch (error) {
-      console.error(error);
+    
       res.status(500).json({ error: 'Erro ao excluir produto.' });
     }
   };
@@ -74,12 +74,9 @@ const listarProdutos = async (req, res) => {
         const produto = await knex('produtos').where({
             id
         }).first()
-
-        
-
-        if (!produto) {
-            return res.status(404).json('Produto não encontrado');
-        }
+if (!produto) {
+        return res.status(404).json('Produto não encontrado');
+}
 
         return res.status(200).json(produto);
     } catch (error) {
